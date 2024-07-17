@@ -50,7 +50,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar fixed z-10 bg-opacity-40 bg-gray-900 text-white max-w-screen-xl">
+      <div className="navbar fixed z-100 bg-opacity-40 bg-gray-900 text-white max-w-screen-xl">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -146,7 +146,7 @@ const Navbar = () => {
               </h1>
                   </li>
                   <li className=" ">
-                    <Link to="dashboard/analytics" className="p-2 btn text-white bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
+                    <Link to="/dashboard" className="p-2 btn text-white bg-purple-400 dark:bg-gradient-to-r from-sky-600 via-cyan-400 to-sky-700 rounded-lg  font-semibold  w-full">Dashboard</Link>
                   </li>
                   <li>
                   <button

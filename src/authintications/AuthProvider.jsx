@@ -15,8 +15,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
         // const axiosPublic = useAxiosPublic();
 
-
-
+        
         // create user
         const createUser = (email, password) =>{
             setLoading(true)
@@ -38,7 +37,8 @@ const AuthProvider = ({children}) => {
        
         // observer
     useEffect(()=>{
-        const unSubscribe =    onAuthStateChanged(auth, (currentUser)=>{
+        const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
+            
             setUser(currentUser);
             if(currentUser){
                 // console.log(currentUser.email)
@@ -54,16 +54,14 @@ const AuthProvider = ({children}) => {
             }
             else{
                 // to do: remove token if stored on client side
-               localStorage.removeItem('access-token')
+            //    localStorage.removeItem('access-token')
             }
             setLoading(false);
         })
         return unSubscribe;
     }, [])  // axiosPublic
     
-
-        
-        
+      
 
     const authInfo ={
         user,
