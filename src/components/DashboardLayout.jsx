@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useAgent from "../hooks/useAgent";
 
 
 const DashboardLayout = () => {
 
   // todo: get isOrganizer value from the database;
   const [isAdmin] = useAdmin();
+  const [isAgent] = useAgent();
 
   return (
     <div className="flex ">
@@ -30,36 +32,61 @@ const DashboardLayout = () => {
           <ul className="menu p-4 pt-10  space-y-2 lg:w-80 min-h-screen bg-cyan-100 text-base-content">
 
             {/* Sidebar content here */}
-            {
-              isAdmin?<>
-              <li>
-              <NavLink to="userManagement">User Management</NavLink>
-            </li>
-            <li>
-            <NavLink to="systemMonitoring">System Monitoring</NavLink>
-            </li>
-            <li>
-            <NavLink to="/">Home</NavLink>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <NavLink to="userManagement">User Management</NavLink>
+                </li>
+                <li>
+                  <NavLink to="systemMonitoring">System Monitoring</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
               </>
-              :<>
-              <li>
-              <NavLink to="registration">Registration</NavLink>
-            </li>
-            <li>
-            <NavLink to="transactionManagement">Transaction Management</NavLink>
-            </li>
-            <li>
-            <NavLink to="balanceInquiry">Balance Inquiry</NavLink>
-            </li>
-            <li>
-            <NavLink to="transactionsHistory">Transactions History</NavLink>
-            </li>
-            <li>
-            <NavLink to="/">Home</NavLink>
-            </li>
+            ) : isAgent ? (
+              <>
+                <li>
+                  <NavLink to="registration">Registration</NavLink>
+                </li>
+                <li>
+                  <NavLink to="transactionManagement">Transaction Management</NavLink>
+                </li>
+                <li>
+                  <NavLink to="agentBalance">Balance Inquiry</NavLink>
+                </li>
+                <li>
+                  <NavLink to="agentHistory">Transactions History</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
               </>
-            }
+            ) : (
+              <>
+                <li>
+                  <NavLink to="registration">Registration</NavLink>
+                </li>
+                <li>
+                  <NavLink to="sendMoney">Send Money</NavLink>
+                </li>
+                <li>
+                  <NavLink to="cashOut">Cash-Out</NavLink>
+                </li>
+                <li>
+                  <NavLink to="cashIn">Cash-in</NavLink>
+                </li>
+                <li>
+                  <NavLink to="usersBalance">Balance Inquiry</NavLink>
+                </li>
+                <li>
+                  <NavLink to="usersHistory">Transactions History</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
