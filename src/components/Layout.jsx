@@ -4,6 +4,7 @@ import Login from "../authintications/Login";
 import Home from "./Home";
 import Register from "../authintications/Register";
 import DashboardLayout from "./DashboardLayout";
+import SendMoney from "../dashboard/users/SendMoney";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +25,13 @@ export const router = createBrowserRouter([
         },                
         {
           path: '/dashboard',
-          element: <DashboardLayout></DashboardLayout>
+          element: <DashboardLayout></DashboardLayout>,
+          children:[
+            {
+              path: '/dashboard/sendMoney',
+              element: <SendMoney></SendMoney>
+            }
+          ]
         }
       ]
     },

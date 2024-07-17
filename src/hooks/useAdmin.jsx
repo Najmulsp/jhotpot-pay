@@ -14,7 +14,8 @@ const useAdmin = () => {
     //     console.log("User is not logged in or user object is null");
     //     return [false, null];
     // }
-
+    // const defaultQueryFn = async () => ({ admin: false });
+    
 
     // const axiosSecure = useAxiosSecure()
     const {data: isAdmin} = useQuery({
@@ -24,7 +25,8 @@ const useAdmin = () => {
             // console.log(res.data);
             return res.data?.admin;
         },
-        enabled: !!user.email 
+        enabled: !!user.email ,
+        initialData: { admin: false }
     })
     return [isAdmin, user?.email ];
 };

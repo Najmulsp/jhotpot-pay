@@ -36,6 +36,7 @@ const Register = () => {
         const userInfo = {
           name: data.name,
           email: data.email,
+          phone: data.phone,
           photoURL: data.photo
         }
         axios.post('http://localhost:5000/users', userInfo)
@@ -95,7 +96,21 @@ const Register = () => {
                 className="input input-bordered"
                 
               />
-              {errors.name && <p className="text-red-500">Email is required.</p>}
+              {errors.email && <p className="text-red-500">Email is required.</p>}
+            </div>
+            {/* phone number */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">Phone</span>
+              </label>
+              <input
+                {...register("phone")}
+                type="number"
+                placeholder="Enter Your Phone Number"
+                className="input input-bordered"
+                
+              />
+              {errors.phone && <p className="text-red-500">Phone number is required.</p>}
             </div>
             {/* photo url */}
             <div className="form-control">
